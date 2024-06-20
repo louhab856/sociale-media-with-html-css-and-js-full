@@ -1,0 +1,31 @@
+// this a media query 
+// this us for having the grid systeme
+// rule in CSS targets devices with a minimum width of 50em, for the grid systeme
+@media (min-width:50em) {}
+// Breakpoint variables for responsive design
+// $breakpoints-up defines breakpoints for ascending screen sizes.
+// $breakpoints-down defines breakpoints for descending screen sizes.
+// Use these variables to easily manage responsive layouts.
+
+// 640px , 1109px ,1400px  
+$breakpoints-up: (
+  'medium': '40em',   
+  'large': '71.87em', 
+  'xlarge': '87.5em',  
+);
+// 639px, 1109px 1399px 
+$breakpoints-down: (
+  'small': '39.9375em',  
+  'medium': '71.8125em', 
+  'large': '87.4375em',  
+);
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content; 
+  }
+}
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content; 
+  }
+}
